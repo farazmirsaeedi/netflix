@@ -39,7 +39,25 @@ const Account = () => {
                     <h1 className="text-3xl md:text-5xl font-bold">My Shows</h1>
                 </div>
             </div>
+            <div className="flex flex-wrap">
+                {movies.map((item, index) => (
+                    // eslint-disable-next-line react/jsx-key
+                    <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 relative">
 
+                        <img
+                            className="w-full h-full object-cover"
+                            src={`https://image.tmdb.org/t/p/original/${item?.img}`}
+                            alt={item?.title}
+                        />
+                        <div className="absolute top-0 left-0 w-full h-full z-10 opacity-0 hover:bg-black/80 hover:opacity-100 text-white">
+                            <p onClick={() => deleteShow(item.id)} className='absolute text-gray-300 top-4 right-4 z-10 cursor-pointer'><AiOutlineClose /></p>
+                            <p className="white-space-normal text-xs md:text-sm text-[9px] font-bold flex justify-center overflow-x-hidden items-center h-full text-center w-full">
+                                {item?.title}
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </>
     );
 };
