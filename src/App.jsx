@@ -1,4 +1,7 @@
 // import { useState } from 'react'
+import { Route, Routes } from "react-router-dom";
+
+
 import Main from "./Components/Main"
 import Navbar from "./Components/Navbar"
 
@@ -9,7 +12,9 @@ function App() {
   return (
     <>
     <Navbar />
-    <Main />
+    <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
     </>
   )
 }
